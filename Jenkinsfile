@@ -25,6 +25,11 @@ pipeline {
             }
         }
     }
+    stage ('Run Image') {
+            steps {
+            bat 'docker run --name nh -p 7783:3070 -d  new1:latest'
+          } 
+      }
     post { 
         aborted { 
             echo 'ABORTED'
